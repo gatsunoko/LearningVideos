@@ -1,2 +1,4 @@
-<h1>Videos#show</h1>
-<p>Find me in app/views/videos/show.html.erb</p>
+<h1><%= @video.title %></h1>
+<%== @video.videourl %>
+<p><%= @video.text %></p>
+<%= link_to '動画一覧へ戻る', videos_path %>
