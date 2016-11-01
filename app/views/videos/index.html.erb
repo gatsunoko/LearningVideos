@@ -4,8 +4,11 @@
 <% @videos.each do |video| %>
 	<h2 id="title"><%= link_to video.title, video_path(video) %></h2>
 	<p id="text"><%= video.text %></p><br>
-	<%= link_to '編集する', edit_video_path(video) %>
-	<%= link_to '削除する', video_path(video), method: :delete, data: { confirm: '削除してもいいですか？' } %>
+	<p id="username"><%= video.user.username %></p><br>
+	<% if video.user_id == current_user.id %>
+		<%= link_to '編集する', edit_video_path(video) %>
+		<%= link_to '削除する', video_path(video), method: :delete, data: { confirm: '削除してもいいですか？' } %>
+	<% end -%>
 	<hr>
 <% end -%>
 <br>
