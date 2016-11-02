@@ -3,12 +3,13 @@
   <head>
     <title>LearningVideos</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div id="container">
 	<header>
 	  <nav>
 	    <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
@@ -30,5 +31,6 @@
 	<p class="alert"><%= alert %></p>
 
     <%= yield %>
+   </div><%# container %>
   </body>
 </html>
