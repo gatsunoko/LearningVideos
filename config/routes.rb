@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :videos
+  resources :videos do
+  	collection do
+  		get :Search
+  	end
+  end
   devise_for :users
 
   root 'videos#index'

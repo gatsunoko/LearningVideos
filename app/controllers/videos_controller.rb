@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 	before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@videos = Video.all
+  	@videos = Video.all.order(created_at: :desc)
   end
 
   def new
@@ -37,6 +37,11 @@ class VideosController < ApplicationController
   def destroy
   	@video.destroy
   	redirect_to videos_path
+  end
+
+  def Search
+    @videos = Video.where('title like ?', '%' + params[:search_title] + '%').order(created_at: :desc)
+    render 'index'
   end
 
   private
