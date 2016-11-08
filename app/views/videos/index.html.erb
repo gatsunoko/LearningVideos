@@ -8,7 +8,11 @@
 </div><%# header %>
 
 <% @videos.each do |video| %>
-	<h2 id="title"><%= link_to video.title, video_path(video) %></h2>
+	<div class="videolink">
+		<h2 id="title"><%= link_to video.title, video_path(video) %></h2>
+		<% url = video.videourl.gsub(/http.+v=/, "") %>
+		<%= link_to image_tag('http://i.ytimg.com/vi/' + url + '/default.jpg'), video_path(video) %>
+	</div><%# videolink %>
 	<p id="username"><%= video.user.username %></p>
 	<p id="text"><%= video.text %></p>
 	<% if video.user_id == current_user.id %>
