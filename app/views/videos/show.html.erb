@@ -1,5 +1,5 @@
 <h1><%= @video.title %></h1>
 <% url = @video.videourl.gsub(/http.+v=/, "") %>
 <%== '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + url + '" frameborder="0" allowfullscreen></iframe>' %>
-<p><%= @video.text %></p>
+<%= simple_format(@video.text, class: :text) %>
 <%= link_to '動画一覧へ戻る', videos_path %>

@@ -22,10 +22,22 @@ h2 a {
 	padding: 5px 0;
 	margin: 5px 0;
 }
-#username {
+.username {
 	font-size: 16px;
 	font-weight: bold;
 }
-#text {
+.text {
 	font-size: 12px;
+}
+.videoindex {
+	overflow: hidden;
+}
+.videoindexlink {
+	float: left;
+	width: 30%;
+}
+.videoindextext {
+	float: right;
+	width: 65%;
+	margin: 25px 0 10px;
 }

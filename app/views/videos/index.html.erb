@@ -8,13 +8,17 @@
 </div><%# header %>
 
 <% @videos.each do |video| %>
-	<div class="videolink">
-		<h2 id="title"><%= link_to video.title, video_path(video) %></h2>
-		<% url = video.videourl.gsub(/http.+v=/, "") %>
-		<%= link_to image_tag('http://i.ytimg.com/vi/' + url + '/default.jpg'), video_path(video) %>
-	</div><%# videolink %>
-	<p id="username"><%= video.user.username %></p>
-	<p id="text"><%= video.text %></p>
+	<div class="videoindex">
+		<div class="videoindexlink">
+			<h2 class="title"><%= link_to video.title, video_path(video) %></h2>
+			<% url = video.videourl.gsub(/http.+v=/, "") %>
+			<%= link_to image_tag('http://i.ytimg.com/vi/' + url + '/hqdefault.jpg', width: 250), video_path(video) %>
+		</div><%# videolink %>
+		<div class="videoindextext">
+			<%= simple_format(truncate(video.text, length: 400), class: :text) %>
+		</div><%# videotext %>
+		</div><%# videoindex %>
+	<p class="username"><%= video.user.username %></p>
 	<% if video.user_id == current_user.id %>
 		<%= link_to '編集する', edit_video_path(video) %>
 		<%= link_to '削除する', video_path(video), method: :delete, data: { confirm: '削除してもいいですか？' } %>
